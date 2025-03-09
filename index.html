@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is He Worth It? Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Is He Worth It? 💔</h1>
+    <p>Answer these questions and find out if he’s worth your time!</p>
+
+    <form id="quizForm">
+        <label>Does he text back fast?</label><br>
+        <input type="radio" name="textBack" value="10"> Yes
+        <input type="radio" name="textBack" value="0"> No<br><br>
+
+        <label>Does he make real plans with you?</label><br>
+        <input type="radio" name="plans" value="10"> Yes
+        <input type="radio" name="plans" value="0"> No<br><br>
+
+        <label>Has he ever ghosted you?</label><br>
+        <input type="radio" name="ghosted" value="0"> Yes
+        <input type="radio" name="ghosted" value="10"> No<br><br>
+
+        <label>How often does he compliment you?</label><br>
+        <select name="compliments">
+            <option value="0">Never</option>
+            <option value="5">Sometimes</option>
+            <option value="10">All the time</option>
+        </select><br><br>
+
+        <button type="button" onclick="calculateScore()">See Results</button>
+    </form>
+
+    <h2 id="result"></h2>
+</div>
+
+<script>
+    function calculateScore() {
+        let form = document.forms["quizForm"];
+        let score = 0;
+
+        score += parseInt(form["textBack"].value || 0);
+        score += parseInt(form["plans"].value || 0);
+        score += parseInt(form["ghosted"].value || 0);
+        score += parseInt(form["compliments"].value || 0);
+
+        let resultText = "";
+        if (score >= 30) {
+            resultText = "👑 He’s a king! Lock him down!";
+        } else if (score >= 20) {
+            resultText = "😬 He’s decent, but keep an eye on him.";
+        } else {
+            resultText = "🚩 RUN. He is NOT worth it!";
+        }
+
+        document.getElementById("result").innerText = resultText;
+    }
+</script>
+</body>
+</html>
