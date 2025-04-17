@@ -1,0 +1,13 @@
+{
+  "name": "is-he-worth-it",
+  "version": "1.0.0",
+  "description": "A simple calculator to determine if he's worth it",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0"
+  }
+}
